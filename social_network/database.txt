@@ -1,0 +1,22 @@
+create database social_network;
+
+create table users(
+	user_id int primary key auto_increment,
+	f_name text(100),
+	l_name text(100),
+	username text,
+	describe_user varchar(255), /*description of the user in the status*/
+	Relationship text,
+	user_pass varchar(255),
+	user_email varchar(255),
+	user_country text,
+	user_gender text,
+	user_birthday text,
+	user_image varchar(255),
+	user_cover varchar(255),
+	user_reg_date timestamp default(current_time),
+	status text,
+	post text,
+	recovery_account varchar(255)   /*the name of his best friend*/
+
+);
