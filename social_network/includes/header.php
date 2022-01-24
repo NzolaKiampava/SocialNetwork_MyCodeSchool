@@ -1,7 +1,7 @@
 <?php
 
 include("includes/connection.php");
-include("function/functions.php");
+include("functions/functions.php");
 
 ?>
 <nav class="navbar navbar-default">
@@ -50,7 +50,7 @@ include("function/functions.php");
 				?>
 				<li><a href='profile.php?<?php echo "u_id=$user_id"?>'><?php echo "$first_name";?></a></li>
 				<li><a href="home.php">Home</a></li>
-				<li><a href="home.php">Find People</a></li>
+				<li><a href="members.php">Find People</a></li>
 				<li><a href="messages.php?u_id=new">Messages</a></li>
 
 				<?php

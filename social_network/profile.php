@@ -245,10 +245,10 @@
 							<div class='col-sm-12'>
 								<img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
 							</div>
-						</div>
+						</div><br>
 						<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a>
-						<a href='functions/delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a><br>
-					</div><br><br>
+						<a href='functions/delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a>
+					</div><br>
 					";
 				}
 
@@ -272,10 +272,10 @@
 								<p>$content</p>
 								<img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
 							</div>
-						</div>
+						</div><br>
 						<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a>
 						<a href='functions/delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a>
-					</div><br><br>
+					</div><br>
 					";
 				}
 
@@ -301,7 +301,7 @@
 								<h3><p>$content</p></h3>
 							</div>
 							<div class='col-sm-4'>
-							</div>
+							</div><br>
 						</div>
 					
 					";
@@ -336,13 +336,16 @@
 						<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a>
 						<a href='edit_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Edit</button></a>
 						<a href='functions/delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a>
-						</div><br><br><br>
+						</div><br>
 						";
 					}
 				}
 
+				include("functions/delete_post.php");
 			}
 		?>
+	</div>
+	<div class="col-sm-2">
 	</div>
 </div>
 </body>
