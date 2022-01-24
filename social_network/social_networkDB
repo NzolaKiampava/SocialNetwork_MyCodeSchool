@@ -1,0 +1,153 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 22-Jan-2022 às 23:55
+-- Versão do servidor: 10.4.13-MariaDB
+-- versão do PHP: 7.2.31
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `social_network`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `post_id` int(20) NOT NULL,
+  `user_id` int(20) NOT NULL,
+  `comment` text NOT NULL,
+  `comment_author` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `post_content` text NOT NULL,
+  `upload_image` varchar(255) NOT NULL,
+  `post_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `f_name` text NOT NULL,
+  `l_name` text NOT NULL,
+  `username` text NOT NULL,
+  `describe_user` varchar(255) NOT NULL,
+  `Relationship` text NOT NULL,
+  `user_pass` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_country` text NOT NULL,
+  `user_gender` text NOT NULL,
+  `user_birthday` text NOT NULL,
+  `user_image` varchar(255) NOT NULL,
+  `user_cover` varchar(255) NOT NULL,
+  `user_reg_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` text NOT NULL,
+  `post` text NOT NULL,
+  `recovery_account` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `user_messages`
+--
+
+CREATE TABLE `user_messages` (
+  `id` int(11) NOT NULL,
+  `user_to` int(20) NOT NULL,
+  `user_from` int(20) NOT NULL,
+  `msg_body` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `msg_seen` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Índices para tabela `user_messages`
+--
+ALTER TABLE `user_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `user_messages`
+--
+ALTER TABLE `user_messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
